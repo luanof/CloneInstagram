@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-registrar',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./registrar.component.scss']
 })
 export class RegistrarComponent {
-
+  @Output() Registrar = new EventEmitter<boolean>();
+  registrar(): void {
+    this.Registrar.emit(false);
+  }
 }
