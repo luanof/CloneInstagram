@@ -2,14 +2,14 @@
   <div class="card-body">
     <div class="card-title"></div>
 
-    <form>
+    <form [formGroup]="login" (ngSubmit)="submitLogin()">
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="E-mail" />
+        <input type="email" class="form-control" formControlName="email" placeholder="E-mail" />
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Senha" />
+        <input type="password" class="form-control" formControlName="senha" placeholder="Senha" />
       </div>
-      <button type="submit" class="btn btn-primary btn-sm btn-block">
+      <button type="submit" [disabled]="!login.valid" class="btn btn-primary btn-sm btn-block">
         Entrar
       </button>
     </form>

@@ -2,20 +2,20 @@
   <div class="card-body">
     <div class="card-title"></div>
 
-    <form>
+    <form [formGroup]="registro" (ngSubmit)="submitRegister()">
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="E-mail" />
+        <input type="email" class="form-control" formControlName="email" placeholder="E-mail" />
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Nome completo" />
+        <input type="text" class="form-control"  formControlName="nomeCompleto" placeholder="Nome completo" />
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Nome de usuário" />
+        <input type="text" class="form-control"   formControlName="nomeUsuario"  placeholder="Nome de usuário" />
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Senha" />
+        <input type="password" class="form-control"   formControlName="senha"  placeholder="Senha" />
       </div>
-      <button type="submit" class="btn btn-primary btn-sm btn-block">
+      <button type="submit" [disabled]="!registro.valid" class="btn btn-primary btn-sm btn-block">
         Cadastre-se
       </button>
     </form>
@@ -31,7 +31,8 @@
 <div class="card" style="width: 20rem">
   <div class="card-body">
     <p class="card-text">
-      Tem uma conta? <a href="#" class="card-link" (click)="registrar()">Faça login</a>
+      Tem uma conta?
+      <a href="#" class="card-link"  (click)="registrar()">Faça login</a>
     </p>
   </div>
 </div>
